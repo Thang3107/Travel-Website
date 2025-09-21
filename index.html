@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Khám Phá Việt Nam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="container navbar">
+      <div class="logo">DuLichVN</div>
+      <nav class="nav-links">
+        <a href="index.html">Trang chủ</a>
+        <a href="tours.html">Tours</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container hero-content">
+        <h1>Khám phá Việt Nam – Trải nghiệm trọn vẹn</h1>
+        <div class="btn-group">
+          <a href="tours.html" class="btn btn-primary">Khám phá tour</a>
+          <a href="contact.html" class="btn">Liên hệ ngay</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Tours -->
+    <section id="featured-tours" class="section container">
+      <h2>Featured Tours</h2>
+      <div class="cards">
+        <!-- Repeatable Tour Card -->
+        <div class="tour-card" data-location="halong" data-duration="3" data-type="thamquan" data-price="medium">
+          <img src="https://source.unsplash.com/400x300/?halong-bay" alt="Hạ Long">
+          <div class="card-body">
+            <h3>Hạ Long 3N2Đ</h3>
+            <p>3 ngày 2 đêm | Từ <span class="price">3.500.000₫</span></p>
+            <a href="tour-detail.html" class="btn btn-primary btn-book">Đặt tour</a>
+          </div>
+        </div>
+        <!-- ... thêm 2–5 cards -->
+      </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why-us" class="section container">
+      <h2>Vì sao chọn chúng tôi?</h2>
+      <div class="us-grid">
+        <div class="us-item">
+          <i class="fas fa-star"></i>
+          <p>Uy tín hàng đầu</p>
+        </div>
+        <div class="us-item">
+          <i class="fas fa-tag"></i>
+          <p>Giá cạnh tranh</p>
+        </div>
+        <div class="us-item">
+          <i class="fas fa-headset"></i>
+          <p>Hỗ trợ 24/7</p>
+        </div>
+        <div class="us-item">
+          <i class="fas fa-map-marked-alt"></i>
+          <p>Trải nghiệm độc đáo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Carousel -->
+    <section id="reviews" class="section container">
+      <h2>Khách hàng nói gì?</h2>
+      <div class="carousel">
+        <div class="slide">
+          <p>Tour rất chu đáo, hướng dẫn viên thân thiện!</p>
+          <h4>Nguyễn Thị A</h4>
+        </div>
+        <div class="slide">
+          <p>Giá tốt, dịch vụ chuyên nghiệp!</p>
+          <h4>John Doe</h4>
+        </div>
+        <!-- ... thêm review -->
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="cta" class="section">
+      <div class="container">
+        <h2>Bắt đầu hành trình của bạn ngay hôm nay</h2>
+        <a href="contact.html" class="btn btn-primary">Liên hệ ngay</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>DuLichVN</h4>
+        <p>Địa chỉ: 123 Lê Lợi, TP. HCM</p>
+        <p>MST: 0123456789</p>
+      </div>
+      <div>
+        <h4>Chính sách</h4>
+        <p><a href="#">Điều khoản & Quy định</a></p>
+        <p><a href="#">Chính sách bảo mật</a></p>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <form>
+          <input type="email" placeholder="Email của bạn" required style="padding:0.5rem;width:80%">
+          <button class="btn btn-primary" style="padding:0.5rem;">Đăng ký</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

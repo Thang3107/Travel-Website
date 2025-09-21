@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tours - DuLichVN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">DuLichVN</div>
+      <nav class="nav-links">
+        <a href="index.html">Trang chủ</a>
+        <a href="tours.html">Tours</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section container">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" style="margin-bottom:2rem;">
+      <select name="location">
+        <option value="all">Tất cả địa điểm</option>
+        <option value="halong">Hạ Long</option>
+        <option value="hoian">Hội An</option>
+      </select>
+      <select name="duration">
+        <option value="all">Tất cả số ngày</option>
+        <option value="3">3 ngày</option>
+        <option value="5">5 ngày</option>
+      </select>
+      <select name="type">
+        <option value="all">Tất cả loại hình</option>
+        <option value="thamquan">Tham quan</option>
+        <option value="nghiduong">Nghỉ dưỡng</option>
+      </select>
+      <select name="price">
+        <option value="all">Tất cả mức giá</option>
+        <option value="low">Dưới 2M</option>
+        <option value="medium">2M–5M</option>
+      </select>
+    </div>
+
+    <!-- Tour Grid -->
+    <div class="tour-grid">
+      <!-- Lặp Tour Card như index.html -->
+      <div class="tour-card" data-location="halong" data-duration="3" data-type="thamquan" data-price="medium">
+        <img src="https://source.unsplash.com/400x300/?halong-bay" alt="Hạ Long">
+        <div class="card-body">
+          <h3>Hạ Long 3N2Đ</h3>
+          <p>3 ngày 2 đêm | <span class="price">3.500.000₫</span></p>
+          <a href="tour-detail.html" class="btn btn-primary btn-book">Đặt tour</a>
+        </div>
+      </div>
+      <!-- ... thêm cards -->
+    </div>
+
+  </main>
+
+  <footer>
+    <!-- Giống footer trong index.html -->
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
