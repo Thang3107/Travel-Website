@@ -11,7 +11,9 @@
 
   <header>
     <div class="container navbar">
-      <div class="logo">DuLichVN</div>
+      <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="DuLichVN" />
+    </a>
       <nav class="nav-links">
         <a href="index.html">Trang chủ</a>
         <a href="tours.html">Tours</a>
@@ -54,8 +56,38 @@
   </main>
 
   <footer>
-    <!-- Giống footer trong index.html -->
-  </footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>DuLichVN</h4>
+      <p>Địa chỉ: 123 Lê Lợi, P. Bến Nghé, Q.1, TP. HCM</p>
+      <p>MST: 0123456789</p>
+    </div>
+    <div>
+      <h4>Chính sách & Điều khoản</h4>
+      <p><a href="#">Điều khoản & Quy định</a></p>
+      <p><a href="#">Chính sách bảo mật</a></p>
+    </div>
+    <div>
+      <h4>Newsletter</h4>
+      <form>
+        <input 
+          type="email" 
+          placeholder="Email của bạn" 
+          required 
+          style="padding:0.5rem; width:80%; border:1px solid #ccc; border-radius:4px;"
+        >
+        <button 
+          type="submit" 
+          class="btn btn-primary" 
+          style="padding:0.5rem; margin-top:0.5rem;"
+        >
+          Đăng ký
+        </button>
+      </form>
+    </div>
+  </div>
+</footer>
+
 
 </body>
 </html>

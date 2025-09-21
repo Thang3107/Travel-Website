@@ -13,7 +13,9 @@
   <!-- Navbar -->
   <header>
     <div class="container navbar">
-      <div class="logo">DuLichVN</div>
+      <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="DuLichVN" />
+    </a>
       <nav class="nav-links">
         <a href="index.html">Trang chủ</a>
         <a href="tours.html">Tours</a>
@@ -40,17 +42,47 @@
     <section id="featured-tours" class="section container">
       <h2>Featured Tours</h2>
       <div class="cards">
-        <!-- Repeatable Tour Card -->
-        <div class="tour-card" data-location="halong" data-duration="3" data-type="thamquan" data-price="medium">
-          <img src="https://source.unsplash.com/400x300/?halong-bay" alt="Hạ Long">
-          <div class="card-body">
-            <h3>Hạ Long 3N2Đ</h3>
-            <p>3 ngày 2 đêm | Từ <span class="price">3.500.000₫</span></p>
-            <a href="tour-detail.html" class="btn btn-primary btn-book">Đặt tour</a>
-          </div>
-        </div>
-        <!-- ... thêm 2–5 cards -->
-      </div>
+  <!-- Hạ Long 3N2Đ -->
+  <div class="tour-card fade-in" data-location="halong" data-duration="3" data-type="thamquan" data-price="medium">
+    <img src="https://source.unsplash.com/400x300/?halong-bay" alt="Hạ Long">
+    <div class="card-body">
+      <h3>Hạ Long 3N2Đ</h3>
+      <p>3 ngày 2 đêm | Từ <span class="price">3.500.000₫</span></p>
+      <a href="tour-detail.html#tour-halong" class="btn btn-primary btn-book">Xem chi tiết</a>
+    </div>
+  </div>
+
+  <!-- Củ Chi 1N -->
+  <div class="tour-card fade-in" data-location="cuchi" data-duration="1" data-type="thamquan" data-price="low">
+    <img src="https://source.unsplash.com/400x300/?cuchi-tunnels" alt="Củ Chi Tunnels">
+    <div class="card-body">
+      <h3>Tour Củ Chi 1N</h3>
+      <p>1 ngày | Từ <span class="price">900.000₫</span></p>
+      <a href="tour-detail.html#tour-cuchi" class="btn btn-primary btn-book">Xem chi tiết</a>
+    </div>
+  </div>
+
+  <!-- Bảo Lộc 3N2Đ -->
+  <div class="tour-card fade-in" data-location="baoloc" data-duration="3" data-type="sinhthai" data-price="medium">
+    <img src="https://source.unsplash.com/400x300/?baoloc-waterfall" alt="Bảo Lộc">
+    <div class="card-body">
+      <h3>Tour Bảo Lộc 3N2Đ</h3>
+      <p>3 ngày 2 đêm | Từ <span class="price">5.200.000₫</span></p>
+      <a href="tour-detail.html#tour-baoloc" class="btn btn-primary btn-book">Xem chi tiết</a>
+    </div>
+  </div>
+
+  <!-- ĐBSCL 1N -->
+  <div class="tour-card fade-in" data-location="mekong" data-duration="1" data-type="thamquan" data-price="low">
+    <img src="https://source.unsplash.com/400x300/?mekong-delta" alt="Đồng bằng sông Cửu Long">
+    <div class="card-body">
+      <h3>Tour ĐBSCL 1N</h3>
+      <p>1 ngày | Từ <span class="price">800.000₫</span></p>
+      <a href="tour-detail.html#tour-mekong" class="btn btn-primary btn-book">Xem chi tiết</a>
+    </div>
+  </div>
+</div>
+
     </section>
 
     <!-- Why Us -->

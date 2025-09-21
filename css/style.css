@@ -1,112 +1,214 @@
-/* ========== Variables ========== */
+/* ==============================================
+   Variables & Base Reset
+   ============================================== */
 :root {
   --color-primary: #008080;
   --color-accent: #FF6600;
   --color-bg-light: #F7F7F7;
-  --color-text: #333333;
-  --font-sans: 'Poppins', sans-serif;
+  --color-text: #333;
   --font-body: 'Roboto', sans-serif;
+  --font-sans: 'Poppins', sans-serif;
 }
 
-/* ========== Base Reset ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   font-family: var(--font-body);
   font-size: 16px;
   scroll-behavior: smooth;
 }
+
 body {
   color: var(--color-text);
   background: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* ========== Utility Classes ========== */
+/* ==============================================
+   Utilities & Containers
+   ============================================== */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
-.btn {
-  display: inline-block;
-  font-family: var(--font-sans);
-  text-decoration: none;
-  cursor: pointer;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  border: none;
-  transition: transform 0.2s;
-}
-.btn-primary {
-  background: var(--color-accent);
-  color: #fff;
-}
-.btn-primary:hover {
-  transform: scale(1.05);
-}
+
 .section {
   padding: 4rem 0;
 }
 
-/* ========== Navbar ========== */
+.btn {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-sans);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  background: var(--color-accent);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Ripple effect */
+.btn::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.6s, opacity 0.6s;
+  pointer-events: none;
+}
+
+.btn:active::after {
+  opacity: 1;
+  transform: scale(2);
+  transition: transform 0s, opacity 0.4s;
+}
+
+/* ==============================================
+   Navbar & Mobile Menu
+   ============================================== */
 header {
   position: sticky;
   top: 0;
   background: #fff;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
 }
-.nav-links {
-  display: none;
-}
-.nav-links a {
-  margin-left: 1.5rem;
-  font-family: var(--font-sans);
-  color: var(--color-text);
-  text-decoration: none;
-}
+
 .logo {
+  font-family: var(--font-sans);
   font-size: 1.5rem;
-  font-weight: bold;
   color: var(--color-primary);
 }
 
-/* ========== Hero Section ========== */
+.nav-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+  transition: right 0.3s ease;
+}
+
+.nav-links.open {
+  right: 0;
+}
+
+.nav-links a {
+  margin: 1rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+  .nav-links {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    background: none;
+    padding: 0;
+    right: 0;
+  }
+  .nav-links a {
+    margin: 0 1.5rem;
+  }
+}
+
+/* ==============================================
+   Hero Section
+   ============================================== */
 #hero {
+  position: relative;
   min-height: 80vh;
-  background: url('https://source.unsplash.com/1600x900/?halong-bay') center/cover no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-image:
+    linear-gradient(135deg, rgba(0,128,128,0.6), rgba(0,128,128,0.2)),
+    url('https://source.unsplash.com/1600x900/?vietnam,landscape');
+  animation: gradientShift 10s ease infinite alternate;
   display: flex;
   align-items: center;
 }
+
+@keyframes gradientShift {
+  from {
+    background-image:
+      linear-gradient(135deg, rgba(0,128,128,0.6), rgba(0,128,128,0.2)),
+      url('https://source.unsplash.com/1600x900/?vietnam,landscape');
+  }
+  to {
+    background-image:
+      linear-gradient(315deg, rgba(0,128,128,0.6), rgba(0,128,128,0.2)),
+      url('https://source.unsplash.com/1600x900/?vietnam,landscape');
+  }
+}
+
 #hero .hero-content {
-  max-width: 600px;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.85);
   padding: 2rem;
   border-radius: 8px;
+  max-width: 600px;
 }
+
 #hero h1 {
   font-family: var(--font-sans);
   margin-bottom: 1rem;
 }
-#hero .btn-group a {
+
+.btn-group a {
   margin-right: 1rem;
 }
 
-/* ========== Featured Tours ========== */
+/* ==============================================
+   Featured Tours
+   ============================================== */
 #featured-tours .cards {
   display: grid;
   gap: 1.5rem;
 }
+
 .tour-card {
   background: #fff;
   border-radius: 8px;
@@ -114,105 +216,303 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s;
 }
+
 .tour-card img {
   width: 100%;
   display: block;
   transition: transform 0.3s;
 }
+
 .tour-card:hover img {
   transform: scale(1.05);
 }
+
 .tour-card .card-body {
   padding: 1rem;
 }
+
 .tour-card h3 {
   margin-bottom: 0.5rem;
   font-family: var(--font-sans);
 }
+
 .tour-card .price {
   color: var(--color-accent);
   font-weight: bold;
 }
+
 .tour-card .btn-book {
   margin-top: 1rem;
 }
 
-/* ========== Why Us ========== */
+@media (min-width: 600px) {
+  #featured-tours .cards {
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  }
+}
+
+/* ==============================================
+   Why Us
+   ============================================== */
 #why-us .us-grid {
   display: grid;
   gap: 1rem;
   text-align: center;
 }
-.us-item svg {
+
+.us-item svg,
+.us-item i {
   width: 48px;
   height: 48px;
-  fill: var(--color-primary);
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
+
 .us-item p {
   font-size: 0.95rem;
 }
 
-/* ========== Reviews Carousel ========== */
-#reviews {
-  position: relative;
+@media (min-width: 768px) {
+  #why-us .us-grid {
+    grid-template-columns: repeat(4,1fr);
+  }
 }
-.carousel {
+
+/* ==============================================
+   Reviews Carousel
+   ============================================== */
+#reviews .carousel {
+  position: relative;
   overflow: hidden;
-  position: relative;
 }
+
 .slide {
   display: none;
   padding: 2rem;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
+
 .slide.active {
   display: block;
+  opacity: 1;
 }
+
 .slide p {
   font-style: italic;
   margin-bottom: 1rem;
 }
+
 .slide h4 {
   font-family: var(--font-sans);
 }
 
-/* ========== CTA Section ========== */
+/* ==============================================
+   Call To Action
+   ============================================== */
 #cta {
   background: var(--color-primary);
   color: #fff;
   text-align: center;
 }
 
-/* ========== Footer ========== */
+/* ==============================================
+   Footer
+   ============================================== */
 footer {
   background: var(--color-bg-light);
   padding: 2rem 0;
   font-size: 0.9rem;
 }
-footer .footer-grid {
+
+.footer-grid {
   display: grid;
   gap: 1.5rem;
 }
 
-/* ========== Responsive Breakpoints ========== */
 @media (min-width: 768px) {
-  .nav-links {
-    display: flex;
-  }
-  #featured-tours .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  #why-us .us-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  footer .footer-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .footer-grid {
+    grid-template-columns: repeat(3,1fr);
   }
 }
 
-@media (min-width: 1024px) {
+/* ==============================================
+   Fade-in Scroll Reveal
+   ============================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==============================================
+   Responsive Tweaks
+   ============================================== */
+@media (max-width: 500px) {
   #hero .hero-content {
-    margin-left: 4rem;
+    padding: 1.5rem;
   }
+  .tour-card .card-body {
+    padding: 0.75rem;
+  }
+}
+
+
+/* —————— 1. Đặt biến chiều cao —————— */
+:root {
+  --header-height: 60px;    /* chỉnh theo chiều cao thực tế của header */
+  --footer-height: 120px;   /* chỉnh theo chiều cao thực tế của footer */
+}
+
+/* —————— 2. Pinned Header —————— */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+}
+
+/* —————— 3. Pinned Footer —————— */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--footer-height);
+  z-index: 1000;
+}
+
+/* —————— 4. Bù nội dung chính —————— */
+main {
+  /* Nếu bạn dùng <main class="section"> thì có thể thay bằng .section:first-of-type */
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
+}
+
+
+
+/* Giữ header fixed */
+:root {
+  --header-height: 60px; /* hoặc chỉnh theo thực tế */
+}
+
+/* Căn giữa logo theo chiều cao header */
+.navbar {
+  height: var(--header-height);
+  align-items: center;
+}
+
+/* Logo image */
+.logo {
+  display: flex;
+  align-items: center;
+  /* bỏ padding/margin mặc định nếu có */
+  padding: 0;
+}
+
+.logo img {
+  height: 100%;        /* Đủ cao = chiều cao .navbar */
+  max-height: var(--header-height);
+  width: auto;
+  object-fit: contain;
+}
+
+/*──────────────────────────────────────────
+  1. Biến chiều cao header/footer
+──────────────────────────────────────────*/
+:root {
+  --header-height: 60px;    /* chỉnh cho khớp thực tế */
+  --header-offset: 30px;       /* Khoảng trống thêm sau header */
+  --footer-height: 120px;   /* chỉnh cho khớp thực tế */
+  --header-gap: 30px;  
+}
+
+/*──────────────────────────────────────────
+  2. Đẩy nội dung xuống/thêm khoảng dưới
+──────────────────────────────────────────*/
+main {
+  /* padding-top tránh nội dung bị header che */
+  padding-top: var(--header-height);
+  /* padding-bottom tránh footer che nội dung */
+  padding-bottom: var(--footer-height);
+}
+
+/* Nếu bạn dùng .section trực tiếp:
+.section:first-of-type {
+  margin-top: var(--header-height);
+}
+*/
+
+/*──────────────────────────────────────────
+  3. Fix hover image không đè chữ
+──────────────────────────────────────────*/
+.tour-card {
+  position: relative;    /* tạo context cho z-index */
+  overflow: hidden;      /* giữ image scale trong khung card */
+}
+
+/* ảnh luôn ở layer thấp */
+.tour-card img {
+  position: relative;
+  z-index: 0;
+  transition: transform 0.3s;
+}
+
+/* phần body (tiêu đề, giá…) luôn trên ảnh */
+.tour-card .card-body {
+  position: relative;
+  z-index: 1;
+  background: #fff;      /* đảm bảo có nền che khi cần */
+}
+
+
+
+/* 2. Đẩy toàn bộ nội dung chính xuống */
+main {
+  padding-top: calc(var(--header-height) + var(--header-offset));
+}
+
+/* Nếu bạn không dùng <main>, có thể áp dụng cho .section đầu tiên: */
+.section:first-of-type {
+  margin-top: calc(var(--header-height) + var(--header-offset));
+}
+
+
+:root {
+  --header-height: 70px;   /* chỉnh theo height header thực tế */
+}
+
+/* 1 rule duy nhất áp padding-top cho main, bằng header-height + 30px */
+main {
+  padding-top: calc(var(--header-height) + 20px);
+}
+
+
+
+/* Mọi section có id (được điều hướng tới) sẽ tự động đẩy xuống */
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--header-gap));
+}
+
+
+/* Áp cho mọi phần tử có id (section, div, h1…) */
+[id] {
+  position: relative;
+}
+
+/* Khi phần tử đó là target (được anchor tới) */
+:target::before {
+  content: "";
+  display: block;
+  height: calc(var(--header-height) + var(--header-gap));
+  margin-top: calc(-1 * (var(--header-height) + var(--header-gap)));
+  visibility: hidden;
 }
